@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  nextjs-basic-shopping-web:
+    image: nextjs-basic-shopping-web
+    # build: .
+    container_name: nextjs-basic-shopping-web
+    networks:
+      - internal_network
+    ports:
+      - 80:3000
+
+    volumes:
+      - ./views:/app/views/
+      - ./public:/app/public/
+
+networks:
+  internal_network:
+    driver: bridge
+
+# build images files 
+# docker build -t nextjs-basic-shopping-web .
+# docker-compose up
+
+# docker build --no-cache -t nextjs-basic-shopping-web .
